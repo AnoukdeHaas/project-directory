@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Resultaten</title>
+</head>
+<body>
+    <header>
+        <h1>Jouw Resultaten</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('result', response_id=response.id) }}">Resultaten</a>
+            <a href="{{ url_for('tips') }}">Tips</a>
+            <a href="mailto:contact@stressreflectie.nl">Contact</a>
+        </nav>
+        <!-- Toegevoegde afbeelding -->
+        <img src="{{ url_for('static', filename='images/resultaten.png') }}" alt="Resultaten Afbeelding" id="result-image">
+    </header>
+
+    <main>
+        <section>
+            <h2>Jouw Inzichten</h2>
+            <p><strong>Hoe je je voelt:</strong> {{ response.feeling or "Niet ingevuld" }}</p>
+            <p><strong>Oorzaak van stress:</strong> {{ response.stress_cause or "Niet ingevuld" }}</p>
+            <p><strong>Coping-strategie:</strong> {{ response.coping_strategy or "Niet ingevuld" }}</p>
+            <p><strong>Uren slaap per nacht:</strong> {{ response.sleep_hours or "Niet ingevuld" }}</p>
+            <p><strong>Beweging per week:</strong> {{ response.exercise_frequency or "Niet ingevuld" }}</p>
+            <p><strong>Stressniveau:</strong> {{ response.stress_level or "Niet ingevuld" }}</p>
+        </section>
+
+        <section>
+            <h2>Persoonlijke Tips</h2>
+            <ul>
+                {% if tips %}
+                    {% for tip in tips %}
+                        <li>{{ tip }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>Er zijn geen tips beschikbaar. Probeer opnieuw.</li>
+                {% endif %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Stress Reflectie Tool</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
+

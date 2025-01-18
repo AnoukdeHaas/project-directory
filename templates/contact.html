@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Contact</title>
+</head>
+<body>
+    <header>
+        <h1>Contact</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('result', response_id=1) }}">Resultaten</a>
+            <a href="{{ url_for('tips') }}">Tips</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Contacteer mij</h2>
+            <p>Als je vragen hebt over de Stress Reflectie Tool of als je meer wilt weten over het project, aarzel dan niet om contact op te nemen. Vul onderstaand formulier in en ik neem zo snel mogelijk contact met je op!</p>
+            
+            <!-- Formulier voor contact -->
+            <form action="{{ url_for('contact') }}" method="POST">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Bericht:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                <button type="submit">Verzenden</button>
+            </form>
+
+            {% if success %}
+                <p>Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.</p>
+            {% elif error %}
+                <p style="color: red;">Er is iets mis gegaan, probeer het later opnieuw.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Stress Reflectie Tool</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

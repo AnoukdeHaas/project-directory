@@ -1,0 +1,211 @@
+/* Algemene stijl voor de body */
+body {
+    font-family: "Georgia", serif;
+    background-color: #f0f8f0; /* Beige achtergrondkleur */
+    color: #2a3d66; /* Donkerblauwe tekstkleur */
+    margin: 0;
+    padding: 0;
+}
+
+/* Stijl voor de header */
+header {
+    background-color: #2a3d66; /* Donkerblauw voor de header */
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Stijl voor de navigatie links */
+nav a {
+    color: #a2d8a3; /* Lichtgroen voor de linkteksten */
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Stijl voor het hoofdgedeelte van de pagina */
+main {
+    background: #fff;
+    padding: 2em;
+    margin: 2em auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Stijl voor de footer */
+footer {
+    text-align: center;
+    background-color: #2a3d66; /* Donkerblauw voor de footer */
+    color: white;
+    padding: 1em 0;
+}
+
+/* Algemene styling voor afbeeldingen */
+img {
+    display: block;
+    margin: 20px auto; /* Centraal uitlijnen */
+    max-width: 100%; /* Responsief maken */
+    height: auto; /* Zorgt dat de afbeelding proportioneel blijft */
+    border-radius: 10px; /* Afronding van hoeken voor een zachtere look */
+}
+
+/* Specifieke styling voor verschillende afbeeldingen */
+.about-me-image {
+    width: 80%; /* Laat deze afbeelding kleiner worden weergegeven */
+    max-width: 600px; /* Maximaal formaat */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtiele schaduw voor een 3D-effect */
+}
+
+.contact-image {
+    width: 70%; /* Specifiek formaat voor de contactafbeelding */
+    max-width: 500px;
+    border: 2px solid #a2d8a3; /* Lichtgroene rand om de afbeelding */
+}
+
+/* Stijlen voor het modaal venster */
+.modal {
+    display: none; /* Verborgen standaard */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrond */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inhoud van het modaal venster */
+.modal-content {
+    background: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: left;
+    position: relative;
+}
+
+/* Sluitknop van het modaal venster */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Styling voor formuliervelden */
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Specifieke styling voor knoppen en submit buttons */
+input[type="submit"], button {
+    background-color: #2a3d66; /* Donkerblauwe knopkleur */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Hover effect voor knoppen */
+input[type="submit"]:hover, button:hover {
+    background-color: #1c2a49; /* Nog donkerder blauw bij hover */
+}
+
+/* Focus-effect voor knoppen */
+button:focus, input[type="submit"]:focus {
+    outline: none; /* Verwijder de standaard focusrand */
+}
+
+/* Extra styling voor knoppen zoals show more of toggle buttons */
+#show-more-btn, #toggle-form-btn {
+    background-color: #a2d8a3; /* Lichtgroen */
+    color: #2a3d66; /* Donkerblauw voor de tekst */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#show-more-btn:hover, #toggle-form-btn:hover {
+    background-color: #8bcf8f; /* Lichtere groen bij hover */
+}
+
+/* Specifieke styling voor de formulier-knop op de indexpagina */
+form#stress-form button {
+    margin-top: 20px;
+}
+
+/* Extra margin voor de contactformulieren */
+form#contact-form input[type="text"], form#contact-form input[type="email"], form#contact-form textarea {
+    margin-bottom: 15px;
+}
+
+/* Responsieve stijlen: Zorg ervoor dat de pagina goed schaalt op mobiele apparaten */
+@media screen and (max-width: 600px) {
+    main {
+        padding: 1em;
+        margin: 1em;
+    }
+
+    .contact-image, .about-me-image {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Specifieke stijl voor de afbeelding in tips.html */
+#tip-image {
+    width: 100%; /* Zorg ervoor dat de afbeelding niet breder is dan het beschikbare gebied */
+    max-width: 600px; /* Beperk de maximale breedte tot 600px */
+    height: auto; /* Zorg ervoor dat de hoogte proportioneel is aan de breedte */
+    margin: 0 auto; /* Centraal uitlijnen van de afbeelding */
+    display: block; /* Zorg ervoor dat de afbeelding een blokniveau element is */
+}
+
+/* Specifieke stijl voor de afbeelding in index.html */
+#intro-image {
+    display: block;
+    margin: 20px auto; /* Centreert de afbeelding horizontaal */
+    max-width: 300px; /* Maximale breedte van de afbeelding */
+    height: auto; /* Houdt de verhoudingen van de afbeelding intact */
+    border: 2px solid #ccc; /* Optionele styling */
+    border-radius: 8px; /* Optionele afgeronde hoeken */
+}
+
+/* Specifieke stijl voor de afbeelding in result.html */
+#result-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 120px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+#result-image:hover {
+    transform: scale(1.1); /* Vergroot de afbeelding iets */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Voeg een subtiele schaduw toe */
+}
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Tips</title>
+</head>
+<body>
+    <header>
+        <h1>Tips voor Stressvermindering</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('result', response_id=1) }}">Resultaten</a>
+            <a href="{{ url_for('tips') }}">Tips</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Stressvermindering Tips</h2>
+            <ul>
+                <li><strong>Tip 1:</strong> Zorg voor voldoende slaap. Een goed slaapritme is essentieel voor het verminderen van stress.</li>
+                <li><strong>Tip 2:</strong> Beweeg regelmatig. Fysieke activiteit kan stresshormonen helpen verlagen.</li>
+                <li><strong>Tip 3:</strong> Praten met vrienden of familie over je stress kan veel opluchten.</li>
+                <li><strong>Tip 4:</strong> Plan tijd voor ontspanning, zoals meditatie, ademhalingsoefeningen of een hobby die je leuk vindt.</li>
+            </ul>
+
+            <!-- Toegevoegde afbeelding met ID voor styling -->
+            <img id="tip-image" src="{{ url_for('static', filename='images/stress-relief.jpg') }}" alt="Stressvermindering">
+
+            <!-- Tekst boven de video -->
+            <h3>Bekijk deze video. De korte bodyscan meditatie is een fijne mindfulnessoefening om je uit je hoofd te brengen en in je lichaam. Met deze meditatie verbeter je het contact met je lichaam door te voelen wat en waar je iets in je lichaam ervaart. Daarnaast helpt het je om je stress te verminderen.</h3>
+            <p>Instructies:
+
+                Tijdens de bodyscan observeer je en neem je waar wat je ervaart. Op sommige plekken in je lichaam zal je misschien veel voelen en op sommige plekken heel weinig of zelfs helemaal niets. Alles wat je waarneemt is oké. 
+                Mocht je tijdens de bodyscan merken dat je aandacht afdwaalt. Weet dat dit bij de oefening hoort. Merk het op zonder oordeel en breng je aandacht telkens op een vriendelijke manier weer terug bij het lichaam. 
+                
+                Tips bij de bodyscan:
+            
+               > Kijk of je ergens kunt gaan liggen waar je de aankomende 10 minuten niet gestoord kan worden. 
+               > Doe de bodyscan liggend op je rug. Als dit fysiek niet mogelijk is dan kan je de oefening ook zittend of staand doen.
+               > Mocht je merken dat je steeds in slaap valt dan kan het helpen de bodyscan met je ogen open te doen. </p>
+
+            <!-- Ingesloten YouTube-video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/H5P2zxzd0Bw" frameborder="0" allowfullscreen></iframe>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Stress Reflectie Tool</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
