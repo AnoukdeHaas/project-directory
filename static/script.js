@@ -1,7 +1,5 @@
-// Event listener voor het formulier bij het indienen op de indexpagina
+// Event listener voor het formulier op de indexpagina
 document.querySelector("form#stress-form")?.addEventListener("submit", function(event) {
-    event.preventDefault(); // Voorkomt het standaard gedrag van het formulier (herladen)
-    
     // Haal de waarden op uit de formuliervelden
     const feeling = document.getElementById("feeling").value;
     const stressCause = document.getElementById("stress_cause").value;
@@ -9,21 +7,17 @@ document.querySelector("form#stress-form")?.addEventListener("submit", function(
 
     // Validatie van de ingevulde velden
     if (!feeling || !stressCause || !copingStrategy) {
+        event.preventDefault(); // Blokkeer het indienen als velden leeg zijn
         alert("Alle velden zijn verplicht!");
     } else {
-        // Als alle velden zijn ingevuld, toon een bevestiging
         alert("Formulier succesvol ingediend!");
-        // Als je het formulier daadwerkelijk wilt verzenden, kun je deze regel inschakelen
-        // event.target.submit();
-        // Of redirect naar de result-pagina
-        window.location.href = "/submit";
+        // Hier wordt het formulier ingediend naar de server
+        event.target.submit();
     }
 });
 
 // Event listener voor het contactformulier
 document.querySelector("form#contact-form")?.addEventListener("submit", function(event) {
-    event.preventDefault(); // Voorkomt het standaard gedrag van het formulier (herladen)
-    
     // Haal de waarden op uit de contactformuliervelden
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -31,12 +25,12 @@ document.querySelector("form#contact-form")?.addEventListener("submit", function
 
     // Validatie van de ingevulde velden
     if (!name || !email || !message) {
+        event.preventDefault(); // Blokkeer het indienen als velden leeg zijn
         alert("Alle velden van het contactformulier moeten ingevuld zijn!");
     } else {
-        // Als alle velden zijn ingevuld, toon een bevestiging
         alert("Je bericht is succesvol verzonden!");
-        // Als je het formulier daadwerkelijk wilt verzenden, kun je deze regel inschakelen
-        // event.target.submit();
+        // Hier wordt het formulier ingediend naar de server
+        event.target.submit();
     }
 });
 
@@ -59,5 +53,6 @@ document.getElementById("toggle-form-btn")?.addEventListener("click", function()
         form.style.display = "none";
     }
 });
+
 
 
