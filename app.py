@@ -1,15 +1,15 @@
-from flask import Flask, render_template, request, redirect, url_for  # type: ignore
+from flask import Flask, render_template, request, redirect, url_for, flash  # type: ignore
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 # Configuratie van de Flask-app
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'  # Pad naar de database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'your_secret_key'  # Nodig voor flash-berichten
 
 db = SQLAlchemy(app)
 
-# Database-model
+# Database-models
 class Response(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     feeling = db.Column(db.String(100), nullable=False)
@@ -18,6 +18,12 @@ class Response(db.Model):
     sleep_hours = db.Column(db.Integer, nullable=False)
     exercise_frequency = db.Column(db.String(50), nullable=False)
     stress_level = db.Column(db.Integer, nullable=False)
+
+class ContactMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
 
 # Database initialiseren
 def init_db():
@@ -86,13 +92,35 @@ def tips():
     return render_template('tips.html')
 
 # Route naar contact.html - contactpagina
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        # Haal gegevens uit het formulier
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        # Validatie
+        if not name or not email or not message:
+            flash("Alle velden zijn verplicht!", "error")
+            return redirect('/contact')
+
+        # Opslaan in de database
+        contact_message = ContactMessage(name=name, email=email, message=message)
+        db.session.add(contact_message)
+        db.session.commit()
+
+        # Succesmelding tonen
+        flash("Bedankt voor je bericht! We nemen snel contact met je op.", "success")
+        return redirect('/contact')
+
     return render_template('contact.html')
 
 if __name__ == '__main__':
     init_db()  # Initialiseer de database
     app.run(debug=True)
+
+
 
 
 

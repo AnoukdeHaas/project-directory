@@ -22,6 +22,17 @@
             <h2>Contacteer mij</h2>
             <p>Als je vragen hebt over de Stress Reflectie Tool of als je meer wilt weten over het project, aarzel dan niet om contact op te nemen. Vul onderstaand formulier in en ik neem zo snel mogelijk contact met je op!</p>
             
+            <!-- Flash-berichten -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
             <!-- Formulier voor contact -->
             <form action="{{ url_for('contact') }}" method="POST">
                 <label for="name">Naam:</label>
@@ -35,12 +46,6 @@
 
                 <button type="submit">Verzenden</button>
             </form>
-
-            {% if success %}
-                <p>Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.</p>
-            {% elif error %}
-                <p style="color: red;">Er is iets mis gegaan, probeer het later opnieuw.</p>
-            {% endif %}
         </section>
     </main>
 
@@ -51,4 +56,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
