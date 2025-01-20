@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Configuratie van de Flask-app
 app = Flask(__name__)
+app.config['TESTING'] = False  # Dit wordt True in tests
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'  # Pad naar de database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'your_secret_key'  # Nodig voor flash-berichten
