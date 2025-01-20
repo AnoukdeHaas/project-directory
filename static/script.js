@@ -34,16 +34,6 @@ document.querySelector("form#contact-form")?.addEventListener("submit", function
     }
 });
 
-// Functie voor het tonen of verbergen van extra tips op de tips-pagina
-document.getElementById("show-more-btn")?.addEventListener("click", function() {
-    var moreTips = document.getElementById("more-tips");
-    if (moreTips.style.display === "none") {
-        moreTips.style.display = "block";
-    } else {
-        moreTips.style.display = "none";
-    }
-});
-
 // Extra dynamische interactie: toggle de visibiliteit van het formulier op de indexpagina
 document.getElementById("toggle-form-btn")?.addEventListener("click", function() {
     var form = document.querySelector("form#stress-form");
